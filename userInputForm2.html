@@ -1,0 +1,129 @@
+<html>
+<head>
+
+    <style type="text/css" rel="stylesheet">
+body{
+
+    
+}
+textarea,input{
+    margin:10px;
+   
+}
+td{
+padding:20px;
+    resize: both;
+    overflow: auto;
+}
+    </style>
+
+</head>
+<body >
+    <h1> ENTER THE DETAILS FOR PAGE TWO:</h1>
+
+<form action="" method="GET" class="form" id="form">
+
+    <table border="1" class="t1" id="t1">
+
+        <tr>
+            <td>Page Heading</td>
+
+            <td><input type="text" class="ph" id="ph"></td>
+
+        </tr>
+
+
+        <tr>
+            <td>Future Scope</td>
+
+            <td> <input type="text" id="txtVal" class="txtVal"></td>
+<td>         <button  type ="button" onclick="addLi()">Add</button></td>
+<td> 
+    YOUR LIST<ol id="list" type="1">
+        
+</ol> </td>
+        </tr>
+
+
+        <tr>
+        <td> Heading: <br>  <br> Reference:
+         </td> 
+           <td>
+            <input type="text" id="txtVal3">
+            <br>
+         <input type="text" id="txtVal4">   
+        </td>
+        <td> <button type ="button" onclick="addLi3()">Add</button>
+        <br> <br>
+        <button onclick="addLi4()" type ="button">Add</button>
+    
+    </td>
+        <td>
+            
+        <dl id="list4">
+        
+            
+        </dl>     
+        </td>    
+
+        </tr>
+   
+    </table>
+
+
+    <td><input type="submit" id="submit" class="submit"></td>
+
+    <td><input type="reset" id="reset" class="reset"></td>
+    
+</form>
+
+
+</body>
+
+<script>
+    //links
+    function addLi3()
+    {
+
+        var txtVal = document.getElementById('txtVal3').value,
+            listNode = document.getElementById('list3'),
+            liNode = document.createElement("dt"),
+            txtNode = document.createTextNode(txtVal);
+    
+         liNode.appendChild(txtNode);
+         listNode.appendChild(liNode);
+    
+    }
+    
+     function addLi4()
+    { 
+
+        var txtVal = document.getElementById('txtVal4').value,
+            listNode = document.getElementById('list4'),
+            liNode = document.createElement("dd"),
+            txtNode = document.createTextNode(txtVal);
+    
+         liNode.appendChild(txtNode);
+         listNode.appendChild(liNode);
+    
+    }
+    
+
+
+function addLi()
+            {
+
+                var txtVal = document.getElementById('txtVal').value,
+                    listNode = document.getElementById('list'),
+                    liNode = document.createElement("LI"),
+                    txtNode = document.createTextNode(txtVal);
+            
+                 liNode.appendChild(txtNode);
+                 listNode.appendChild(liNode);
+            
+            }
+ 
+</script>
+
+
+</html>
