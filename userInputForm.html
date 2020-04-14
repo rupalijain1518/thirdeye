@@ -21,14 +21,14 @@ padding:20px;
 <body >
     <h1> ENTER THE DETAILS FOR PAGE ONE:</h1>
 
-<form action="userInputForm2.html" method="GET" class="form" id="form">
+<form action="input2.html" method="GET" class="form" id="form" name="form">
 
-    <table border="1" class="t1" id="t1">
+    <table border="1" class="t1" id="t1" name="t1">
 
         <tr>
             <td>Page Heading</td>
 
-            <td><input type="text" class="ph" id="ph"></td>
+            <td><input type="text" class="ph" id="ph" name="ph"></td>
 
         </tr>
 
@@ -37,19 +37,51 @@ padding:20px;
         <tr>
             <td>Enter Introduction</td>
 
-            <td>       <textarea rows="8" cols="40"  id="intro" class="intro">
+            <td>       <textarea rows="8" cols="40"  id="intro" name="intro" class="intro">
             </textarea></td>
+
+        </tr>
+
+        <tr>
+            <td>upload Image 1</td>
+
+            <td>       <input type="file" accept="image/*" name="image1" class="image1" id="image1" ></td>
+
+        </tr>
+        <tr>
+            <td>Enter information for image 1 </td>
+
+            <td><textarea rows="8" cols="40" class="image-info1" id ="image-info1" name ="image-info1"> </textarea></td>
 
         </tr>
 
 
         <tr>
+            <td>upload Image 2</td>
+
+            <td>       <input type="file" accept="image/*" name="image2" class="image2" id="image2"> </textarea></td>
+
+        </tr>
+
+
+        <tr>
+            <td>Enter information for image 2 </td>
+
+            <td>       <textarea rows="8" cols="40" class="image-info2" id ="image-info2" name ="image-info2"></textarea></td>
+
+        </tr>
+
+
+
+
+        <tr>
             <td>List Of Institutes</td>
 
-            <td> <input type="text" id="txtVal" class="txtVal"></td>
-<td>         <button type ="button" onclick="addLi()">Add</button></td>
+            <td> <input type="text" id="txtVal" class="txtVal" name="txtVal"></td>
+<td>         <button type ="button" onclick="addLi()"> Add </button></td>
 <td> 
-    YOUR LIST<ol id="list" type="1">
+<!--	<p name = "inst"  id= "inst" class = "inst"> </p> -->
+    YOUR LIST<ol id="list" type="1" name="list"class="list">
         
 </ol> </td>
         </tr>
@@ -58,10 +90,16 @@ padding:20px;
         <tr>  <!-- add list code here-->
             <td>List Of Elegibility</td>
 
-            <td> <input type="text" id="txtVal3" class="txtVal3"></td>
+            <td> <input type="text" id="txtVal3" name="txtVal3" class="txtVal3"></td>
             <td>         <button type ="button" onclick="addLi3()">Add</button></td>
             <td>YOUR LIST: 
-                <ol id="list3" type="1">
+     			
+	<!--
+               to display array into para
+
+		<p name = "ele" id="ele" claa="ele"> </p> -->
+
+                <ol id="list3" type="1"  name="list3"  class="list3">
         
             </ol> </td>
 
@@ -88,7 +126,7 @@ padding:20px;
     </td>
 
     <td>
-        <table id="table" >
+        <table id="table" class="table"  name="table">
             <tr>
                 <th>Sr. No.</th>
                 <th>Course</th>
@@ -109,18 +147,38 @@ padding:20px;
     </table>
 
 
-    <td><input type="submit" id="submit" class="submit"></td>
+    <td><input type="submit" id="submit" name="submit" class="submit" onclick="setValues();"></td>
 
-    <td><input type="reset" id="reset" class="reset"></td>
+    <td><input type="reset" id="reset" name="reset" class="reset"></td>
     
 </form>
 
 </body>
 <script>
-
+var instt = [];
+var eleg= [];
+/*document.getElementById("inst").innerHTML = inst;
+document.getElementById("ele").innerHTML = eleg;
+*/
 var rIndex;
 var table = document.getElementById("table");
             
+        function setValues()
+        {
+localStorage.setItem("a",document.getElementById("ph").value);
+localStorage.setItem("b",document.getElementById("intro").value);
+localStorage.setItem("c",document.getElementById("image1"));
+localStorage.setItem("d",document.getElementById("image-info1").value);
+localStorage.setItem("e",document.getElementById("image2"));
+localStorage.setItem("f",document.getElementById("image-info2").value);
+localStorage.setItem("g",document.getElementById("table"));
+localStorage.setItem("list1",instt);
+localStorage.setItem("list2",eleg);
+
+        }
+
+
+
             // check the empty input
             function checkEmptyInput()
             {
@@ -217,7 +275,8 @@ function addLi()
             
                  liNode.appendChild(txtNode);
                  listNode.appendChild(liNode);
-            
+              instt.push(txtVal);
+  //document.getElementById("inst").innerHTML = instt;
             }
 
             function addLi3()
@@ -230,9 +289,15 @@ function addLi()
             
                  liNode.appendChild(txtNode);
                  listNode.appendChild(liNode);
+
+
+                     eleg.push(txtVal);
+  //document.getElementById("ele").innerHTML = eleg;
             
             }
         
+
+
 </script>
 
 

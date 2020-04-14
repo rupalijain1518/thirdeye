@@ -1,0 +1,165 @@
+<html>
+<head>
+
+    <style type="text/css" rel="stylesheet">
+body{
+
+    
+}
+textarea,input{
+    margin:10px;
+   
+}
+td{
+padding:20px;
+    resize: both;
+    overflow: auto;
+}
+    </style>
+
+</head>
+<body >
+    <h1> ENTER THE DETAILS FOR PAGE TWO:</h1>
+
+<form action="hitandtrial.html" method="GET" class="form2" id="form2" name="form2">
+
+    <table border="1" class="t2" name="t2" id="t2">
+
+        <tr>
+            <td>Page Heading</td>
+
+            <td><input type="text" class="ph1" id="ph1" name="ph1"></td>
+
+        </tr>
+
+
+        <tr>
+            <td>upload Image </td>
+
+            <td>       <input type="file" accept="image/*" name="image3" class="image3" id="image3"></td>
+
+        </tr>
+
+
+        <tr>
+            <td>Enter information for image</td>
+
+            <td>  <textarea rows="8" cols="40" class="image-info3" id ="image-info3" name ="image-info3"></textarea></td>
+
+        </tr>
+
+
+        <tr>
+            <td>Future Scope</td>
+
+            <td> <input type="text" id="txtVal" class="txtVal" name="txtVal"></td>
+        <td>         <button  type ="button" onclick="addLi()">Add</button></td>
+<td> 
+YOUR LIST
+<!--	<p id="futurePara" class="futurePara" name="futurePara"> </p>-->
+    <ol id="list2" type="1" class="list2" name="list2">
+        
+</ol> </td>
+        </tr>
+
+
+        <tr>
+        <td> Heading: <br>  <br> Reference:
+         </td> 
+           <td>
+            <input type="text" id="txtVal3">
+            <br>
+         <input type="text" id="txtVal4">   
+        </td>
+        <td> <button type ="button" onclick="addLi3()">Add</button>
+        <br> <br>
+        <button onclick="addLi4()" type ="button">Add</button>
+    
+    </td>
+        <td>
+            
+        <dl id="list4" name="list4" class="list4">
+        
+            
+        </dl>     
+        </td>    
+
+        </tr>
+   
+    </table>
+
+
+    <td><input type="submit" id="submit2" class="submit2" name="submit2" onclick="setValues();"></td>
+
+    <td><input type="reset" id="reset2" class="reset2" name="reset2"></td>
+
+       
+</form>
+
+
+</body>
+
+<script>
+
+
+
+var fs = [];
+//document.getElementById("futurePara").innerHTML = fs;
+
+  function setValues()
+        {
+localStorage.setItem("aa",document.getElementById("ph1").value);
+localStorage.setItem("bb",document.getElementById("image3"));
+localStorage.setItem("cc",document.getElementById("image-info3").value);
+localStorage.setItem("list3",fs);
+
+        }
+
+
+    //links
+    function addLi3()
+    {
+
+        var txtVal = document.getElementById('txtVal3').value,
+            listNode = document.getElementById('list4'),
+            liNode = document.createElement("dt"),
+            txtNode = document.createTextNode(txtVal);
+    
+         liNode.appendChild(txtNode);
+         listNode.appendChild(liNode);
+    
+    }
+    
+     function addLi4()
+    { 
+
+        var txtVal = document.getElementById('txtVal4').value,
+            listNode = document.getElementById('list4'),
+            liNode = document.createElement("dd"),
+            txtNode = document.createTextNode(txtVal);
+    
+         liNode.appendChild(txtNode);
+         listNode.appendChild(liNode);
+    }
+    
+
+
+function addLi()
+            {
+
+                var txtVal = document.getElementById('txtVal').value,
+                    listNode = document.getElementById('list2'),
+                    liNode = document.createElement("LI"),
+                    txtNode = document.createTextNode(txtVal);
+            
+                 liNode.appendChild(txtNode);
+                 listNode.appendChild(liNode);
+               fs.push(txtVal);
+  //document.getElementById("futurePara").innerHTML = fs;
+   
+            }
+ 
+</script>
+
+
+</html>
