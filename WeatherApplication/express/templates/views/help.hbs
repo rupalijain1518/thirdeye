@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+        {{>header}}
+   <!-- for adding dynamic partials-->
+    {{>dynamic_header}}
+        <h1 > You have opened {{ title}} page </h1>
+        <h4> Company {{name}} </h4>
+                {{>dynamic_footer}}
+    </body>
+
+</html>
